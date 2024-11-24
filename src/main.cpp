@@ -177,32 +177,17 @@ void setup()
 
   if (!setupWiFi(ssid, pass))
   {
-    flagNotWork = true;
     esp_deep_sleep(timeSleep);
-  }
-  else
-  {
-    flagNotWork = false;
   }
 
   if (!reconnect())
   {
-    flagNotWork = true;
     esp_deep_sleep(timeSleep);
-  }
-  else
-  {
-    flagNotWork = false;
   }
 
   if (!work())
   {
-   flagNotWork = true;
     esp_deep_sleep(timeSleep);
-  }
-  else
-  {
-    flagNotWork = false;
   }
 
   // mqttDataOut(data.c);
