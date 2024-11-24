@@ -150,7 +150,12 @@ bool setupWiFi(const char *wifi_ssid, const char *wifi_pass)
 bool work()
 {
   timeClient.begin();
-  timeClient.update();
+  while (!timeClient.update() && countConnect--)
+  {
+    Serial.print(countConnect);
+    Serial.print('>');
+    delay(countPause);
+  }
   String str = "";
   Serial.println();
 
